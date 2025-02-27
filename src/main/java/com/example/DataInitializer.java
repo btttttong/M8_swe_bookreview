@@ -4,23 +4,23 @@ import com.example.model.Book;
 import com.example.model.Review;
 import com.example.service.BookCatalog;
 import com.example.service.ReviewManager;
+import org.springframework.beans.factory.annotation.Autowired;
 import jakarta.annotation.PostConstruct;
-import org.springframework.stereotype.Component;
 
-@Component
 public class DataInitializer {
     private final BookCatalog bookCatalog;
     private final ReviewManager reviewManager;
 
+    @Autowired 
     public DataInitializer(BookCatalog bookCatalog, ReviewManager reviewManager) {
         this.bookCatalog = bookCatalog;
         this.reviewManager = reviewManager;
-        System.out.println("Constructor Injection: DataInitializer initialized");
+        System.out.println("✅ Constructor Injection: DataInitializer initialized");
     }
 
     @PostConstruct
     public void init() {
-        System.out.println("Initializing sample data...");
+        System.out.println("🚀 Initializing sample data...");
 
         Book book1 = new Book("Effective Java", "Joshua Bloch");
         Book book2 = new Book("Clean Code", "Robert C. Martin");
