@@ -1,7 +1,6 @@
 plugins {
 	java
-	id("org.springframework.boot") version "3.4.3"
-	id("io.spring.dependency-management") version "1.1.7"
+	id("application")
 }
 
 group = "com.example"
@@ -18,12 +17,17 @@ repositories {
 }
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
-	implementation("org.springframework.boot:spring-boot-starter-web")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
-	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+	implementation("org.springframework:spring-context:6.1.4")
+    implementation("jakarta.annotation:jakarta.annotation-api:3.0.0")
+
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.0")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.0")
 }
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+}
+
+application {
+    mainClass.set("com.example.App")
 }
